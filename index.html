@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {
+            color: #fff;
+        }
+
+        caption {
+            color: #00f
+        }
+
+        td {
+            background: rgb(23, 172, 152);
+            padding: 5px;
+            border: 1px solid rgb(11, 146, 56);
+        }
+
+        a:link {
+            color: #fff;
+        }
+
+        div {
+            margin-top: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- <table border="1" bgcolor="#00f" bordercolor="#fff" cellpadding="5" cellspacing="5">
+
+        <caption>Заголовок таблицы</caption>
+        <tr>
+            <td colspan="2">Ячейка 1</td>
+            <td rowspan="2">Ячейка 3</td>
+        </tr>
+        <tr>
+            <td>Ячейка 4</td>
+            <td>Ячейка 5</td>
+        </tr>
+        <tr>
+            <td>Ячейка 7</td>
+            <td>Ячейка 8</td>
+            <td>Ячейка 9</td>
+        </tr>
+    </table> -->
+
+    <h2>Создать таблицу:</h2>
+    <form name="myform">
+
+      Столбцы: <input type="text" name="cols" value="5"> <br>
+      Строки: <input type="text" name="rows" value="7"> <br>
+       Цвет фона: <input type="text" name="bc" value="blue"> <br>
+       Цвет рамки: <input type="text" name="brd" value="coral"> <br>
+
+    <input id="b" type="button" value="Создать" onclick="myTable()">
+    <input type="reset">     
+    </form>
+
+    <div id="tab1"></div>
+
+    <script>
+        // x = prompt("Введите количество столбцов");
+        // y = prompt("Введите количество строк");
+        
+        // c1 = prompt("Введите цвет фона");
+        // c2 = prompt("Введите цвет рамки");
+
+        // x = 6; y = 7;
+
+
+        function myTable() {
+
+            x = myform.cols.value;
+            y = myform.rows.value;
+            c1 = myform.bc.value;
+            c2 = myform.brd.value;
+
+        let c = 1;
+        let tab = "<table>";
+        for (i = 1; i <= y; i++) { // для строк
+
+            tab += "<tr>";
+
+            for (j = 1; j <= x; j++) { // для ячеек
+                tab += `<td style="background: ${c1}; 
+                border: 1px solid ${c2}">
+                <a href="link${c}.html">Ячейка ${c}</a></td>`;
+                c++;
+            };
+
+            tab += "</tr>";
+
+        };
+
+        tab += "</table>";
+        tab1.innerHTML = tab;
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
